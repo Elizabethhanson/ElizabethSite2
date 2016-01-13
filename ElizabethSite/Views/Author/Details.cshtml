@@ -1,0 +1,41 @@
+﻿@model ElizabethLibrary.Models.AuthorViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+<h4>Book Details</h4>
+<hr />
+<dl class="dl-horizontal">
+    <dt>        
+        @Html.DisplayFor(model => model.FirstName)
+        @Html.DisplayFor(model => model.LastName)
+    </dt>
+</dl>
+</div>
+<table>
+    @foreach (var item in Model.books)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISBN)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", "Book", new { id = item.BookId }, null)
+            </td>
+        </tr>
+    }
+</table>
+<br />
+
+<p>
+    @Html.ActionLink("Back to List", "Authors")
+</p>

@@ -23,5 +23,24 @@ namespace LibraryService.Entities
             return author;
         }
 
+        public static BookEntity TranslateBookToBookEntity(Book book)
+        {
+            BookEntity bookEntity = new BookEntity();
+            bookEntity.AuthorId = book.AuthorId;
+            bookEntity.BookEntityId = book.BookId;
+            bookEntity.ISBN = book.ISBN;
+            bookEntity.Title = book.Title;
+            return bookEntity;
+        }
+
+        public static AuthorEntity TranslateAuthorToAuthorEntity(Author author)
+        {
+            AuthorEntity authorEntity = new AuthorEntity();
+            authorEntity.AuthorEntityId = author.AuthorID;
+            authorEntity.FirstName = author.FirstName;
+            authorEntity.LastName = author.LastName;
+            return authorEntity;
+        }
+
     }
 }

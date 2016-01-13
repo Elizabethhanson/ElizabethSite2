@@ -8,9 +8,6 @@ namespace LibraryService
     public interface ILibraryService
     {
         [OperationContract]
-        string GetData(int value);
-
-        [OperationContract]
         Book GetBook(int id);
 
         [OperationContract]
@@ -21,6 +18,21 @@ namespace LibraryService
 
         [OperationContract]
         IEnumerable<Author> GetAuthors();
+
+        [OperationContract]
+        IEnumerable<Book> GetBooksByAuthorID(int id);
+
+        [OperationContract]
+        void AddNewBook(Book book);
+
+        [OperationContract]
+        void AddNewAuthor(Author author);
+
+        [OperationContract]
+        Book UpdateBook(Book book);
+
+        [OperationContract]
+        Author UpdateAuthor(Author author);
     }
 
 }

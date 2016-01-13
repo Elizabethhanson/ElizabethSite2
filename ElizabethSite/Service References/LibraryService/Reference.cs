@@ -187,12 +187,6 @@ namespace ElizabethLibrary.LibraryService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LibraryService.ILibraryService")]
     public interface ILibraryService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/GetData", ReplyAction="http://tempuri.org/ILibraryService/GetDataResponse")]
-        string GetData(int value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/GetData", ReplyAction="http://tempuri.org/ILibraryService/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(int value);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/GetBook", ReplyAction="http://tempuri.org/ILibraryService/GetBookResponse")]
         ElizabethLibrary.LibraryService.Book GetBook(int id);
         
@@ -216,6 +210,36 @@ namespace ElizabethLibrary.LibraryService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/GetAuthors", ReplyAction="http://tempuri.org/ILibraryService/GetAuthorsResponse")]
         System.Threading.Tasks.Task<ElizabethLibrary.LibraryService.Author[]> GetAuthorsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/GetBooksByAuthorID", ReplyAction="http://tempuri.org/ILibraryService/GetBooksByAuthorIDResponse")]
+        ElizabethLibrary.LibraryService.Book[] GetBooksByAuthorID(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/GetBooksByAuthorID", ReplyAction="http://tempuri.org/ILibraryService/GetBooksByAuthorIDResponse")]
+        System.Threading.Tasks.Task<ElizabethLibrary.LibraryService.Book[]> GetBooksByAuthorIDAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/AddNewBook", ReplyAction="http://tempuri.org/ILibraryService/AddNewBookResponse")]
+        void AddNewBook(ElizabethLibrary.LibraryService.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/AddNewBook", ReplyAction="http://tempuri.org/ILibraryService/AddNewBookResponse")]
+        System.Threading.Tasks.Task AddNewBookAsync(ElizabethLibrary.LibraryService.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/AddNewAuthor", ReplyAction="http://tempuri.org/ILibraryService/AddNewAuthorResponse")]
+        void AddNewAuthor(ElizabethLibrary.LibraryService.Author author);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/AddNewAuthor", ReplyAction="http://tempuri.org/ILibraryService/AddNewAuthorResponse")]
+        System.Threading.Tasks.Task AddNewAuthorAsync(ElizabethLibrary.LibraryService.Author author);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/UpdateBook", ReplyAction="http://tempuri.org/ILibraryService/UpdateBookResponse")]
+        ElizabethLibrary.LibraryService.Book UpdateBook(ElizabethLibrary.LibraryService.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/UpdateBook", ReplyAction="http://tempuri.org/ILibraryService/UpdateBookResponse")]
+        System.Threading.Tasks.Task<ElizabethLibrary.LibraryService.Book> UpdateBookAsync(ElizabethLibrary.LibraryService.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/UpdateAuthor", ReplyAction="http://tempuri.org/ILibraryService/UpdateAuthorResponse")]
+        ElizabethLibrary.LibraryService.Author UpdateAuthor(ElizabethLibrary.LibraryService.Author author);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/UpdateAuthor", ReplyAction="http://tempuri.org/ILibraryService/UpdateAuthorResponse")]
+        System.Threading.Tasks.Task<ElizabethLibrary.LibraryService.Author> UpdateAuthorAsync(ElizabethLibrary.LibraryService.Author author);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -243,14 +267,6 @@ namespace ElizabethLibrary.LibraryService {
         
         public LibraryServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public string GetData(int value) {
-            return base.Channel.GetData(value);
-        }
-        
-        public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
-            return base.Channel.GetDataAsync(value);
         }
         
         public ElizabethLibrary.LibraryService.Book GetBook(int id) {
@@ -283,6 +299,46 @@ namespace ElizabethLibrary.LibraryService {
         
         public System.Threading.Tasks.Task<ElizabethLibrary.LibraryService.Author[]> GetAuthorsAsync() {
             return base.Channel.GetAuthorsAsync();
+        }
+        
+        public ElizabethLibrary.LibraryService.Book[] GetBooksByAuthorID(int id) {
+            return base.Channel.GetBooksByAuthorID(id);
+        }
+        
+        public System.Threading.Tasks.Task<ElizabethLibrary.LibraryService.Book[]> GetBooksByAuthorIDAsync(int id) {
+            return base.Channel.GetBooksByAuthorIDAsync(id);
+        }
+        
+        public void AddNewBook(ElizabethLibrary.LibraryService.Book book) {
+            base.Channel.AddNewBook(book);
+        }
+        
+        public System.Threading.Tasks.Task AddNewBookAsync(ElizabethLibrary.LibraryService.Book book) {
+            return base.Channel.AddNewBookAsync(book);
+        }
+        
+        public void AddNewAuthor(ElizabethLibrary.LibraryService.Author author) {
+            base.Channel.AddNewAuthor(author);
+        }
+        
+        public System.Threading.Tasks.Task AddNewAuthorAsync(ElizabethLibrary.LibraryService.Author author) {
+            return base.Channel.AddNewAuthorAsync(author);
+        }
+        
+        public ElizabethLibrary.LibraryService.Book UpdateBook(ElizabethLibrary.LibraryService.Book book) {
+            return base.Channel.UpdateBook(book);
+        }
+        
+        public System.Threading.Tasks.Task<ElizabethLibrary.LibraryService.Book> UpdateBookAsync(ElizabethLibrary.LibraryService.Book book) {
+            return base.Channel.UpdateBookAsync(book);
+        }
+        
+        public ElizabethLibrary.LibraryService.Author UpdateAuthor(ElizabethLibrary.LibraryService.Author author) {
+            return base.Channel.UpdateAuthor(author);
+        }
+        
+        public System.Threading.Tasks.Task<ElizabethLibrary.LibraryService.Author> UpdateAuthorAsync(ElizabethLibrary.LibraryService.Author author) {
+            return base.Channel.UpdateAuthorAsync(author);
         }
     }
 }

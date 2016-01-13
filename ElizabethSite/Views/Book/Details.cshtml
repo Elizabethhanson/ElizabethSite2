@@ -19,6 +19,9 @@
         @Html.DisplayFor(model => model.author.FirstName)
         @Html.DisplayFor(model => model.author.LastName)
     </dt>
+    <dt>
+        @Html.ActionLink("Details", "Details", "Author", new { id = Model.author.AuthorId }, null)        
+    </dt>
 </dl>
 </div>
 <br />
