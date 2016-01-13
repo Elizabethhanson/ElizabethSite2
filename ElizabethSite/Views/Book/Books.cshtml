@@ -18,13 +18,13 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.BookId)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.ISBN)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.author)
+                @Html.DisplayFor(modelItem => item.author.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.author.LastName)
             </td>
             <td>
                 @Html.ActionLink("Details", "Details", new { id = item.BookId })

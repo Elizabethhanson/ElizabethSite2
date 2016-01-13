@@ -14,9 +14,14 @@
 <dl class="dl-horizontal">
     <dt>
         @Html.DisplayFor(model => model.Title)
+    </dt>    
+    <dt>        
+        @Html.DisplayFor(model => model.author.FirstName)
+        @Html.DisplayFor(model => model.author.LastName)
     </dt>
 </dl>
 </div>
+<br />
 <p>
     @Html.ActionLink("Back to List", "Books")
 </p>
