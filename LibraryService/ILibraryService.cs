@@ -1,5 +1,6 @@
 ﻿using System.ServiceModel;
 using LibraryService.Models;
+using System.Collections.Generic;
 
 namespace LibraryService
 {
@@ -11,6 +12,15 @@ namespace LibraryService
 
         [OperationContract]
         Book GetBook(int id);
+
+        [OperationContract]
+        IEnumerable<Book> GetBooks();
+
+        [OperationContract]
+        Author GetAuthor(int id);
+
+        [OperationContract]
+        IEnumerable<Author> GetAuthors();
     }
 
 }

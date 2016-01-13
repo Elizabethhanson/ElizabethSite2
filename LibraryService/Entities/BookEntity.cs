@@ -1,10 +1,15 @@
-﻿namespace LibraryService.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace LibraryService.Entities
 {
+    [Table("Books")]
     public class BookEntity
     {
-        public int BookId;
-        public string ISBN;
-        public int AuthorId;
-        public string Title;
+        [Key]
+        public int BookEntityId { get; set; }
+        public string ISBN { get; set; }
+        public int AuthorId { get; set; }
+        public string Title { get; set; }
     }
 }

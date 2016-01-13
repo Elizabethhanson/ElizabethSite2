@@ -1,4 +1,6 @@
 ﻿using System.Web.Mvc;
+using ElizabethLibrary.Models;
+using System.Collections.Generic;
 
 namespace ElizabethLibrary.Controllers
 {
@@ -6,8 +8,7 @@ namespace ElizabethLibrary.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-
+            ViewBag.Title = "My Library";
             return View();
         }
     }

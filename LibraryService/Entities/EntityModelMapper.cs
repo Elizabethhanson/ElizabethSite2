@@ -8,7 +8,7 @@ namespace LibraryService.Entities
         {
             Book book = new Book();
             book.AuthorId = bookEntity.AuthorId;
-            book.BookId = bookEntity.BookId;
+            book.BookId = bookEntity.BookEntityId;
             book.ISBN = bookEntity.ISBN;
             book.Title = bookEntity.Title;
             return book;
@@ -17,7 +17,7 @@ namespace LibraryService.Entities
         public static Author TranslateAuthorEntityToAuthor(AuthorEntity authorEntity)
         {
             Author author = new Author();
-            author.AuthorID = authorEntity.AuthorId;
+            author.AuthorID = authorEntity.AuthorEntityId;
             author.FirstName = authorEntity.FirstName;
             author.LastName = authorEntity.LastName;
             return author;

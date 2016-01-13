@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ElizabethLibrary.Models.BookViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Books";
+}
+
+<h2>Books</h2>
+
+    <h4>Book</h4>
+    <hr />
+    <table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISBN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.author)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.BookId })
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Back to List", "Books")
+</p>
+
+
+
+

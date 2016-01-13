@@ -1,9 +1,14 @@
-﻿namespace LibraryService.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace LibraryService.Entities
 {
+    [Table("Authors")]
     public class AuthorEntity
     {
-        public int AuthorId;
-        public string FirstName;
-        public string LastName;
+        [Key]
+        public int AuthorEntityId {get; set;}
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }
