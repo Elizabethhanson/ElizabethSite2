@@ -1,6 +1,6 @@
 ﻿namespace LibraryService.Entities
 {
-    class BookEntity
+    public class BookEntity
     {
         public int BookId;
         public string ISBN;

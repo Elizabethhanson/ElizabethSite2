@@ -1,9 +1,11 @@
 ﻿using LibraryService.Models;
+using LibraryService.Entities;
+using System.Linq;
 
 namespace LibraryService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
-    public class LIbraryService : ILibraryService
+    public class LibraryService : ILibraryService
     {
         public string GetData(int value)
         {
@@ -12,11 +14,16 @@ namespace LibraryService
 
         public Book GetBook(int id)
         {
-            Book book = new Book();
-            book.Title = "Title of book";
-            book.ISBN = "1234 1234 1234";
-            book.BookId = id;
-            return book;
+            LibraryContext context = new LibraryContext();
+            var bookEntity = (from b in context.Books
+                              where b.BookId == id
+                              select b).FirstOrDefault();
+            if (bookEntity != null)
+            {
+                return EntityModelMapper.TranslateBookEntityToBook(bookEntity);
+            }
+            else
+            { throw new System.Exception("Invalid book id"); }
         }
     }
 }

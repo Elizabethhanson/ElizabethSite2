@@ -1,6 +1,6 @@
 ﻿namespace LibraryService.Entities
 {
-    class AuthorEntity
+    public class AuthorEntity
     {
         public int AuthorId;
         public string FirstName;
