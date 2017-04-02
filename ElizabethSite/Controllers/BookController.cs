@@ -9,19 +9,19 @@ namespace ElizabethLibrary.Controllers
     {        
         public BookController()
         {
-            proxy = new LibraryService.LibraryServiceClient();
+            _proxy = new LibraryService.LibraryServiceClient();
         }
 
-        private LibraryService.LibraryServiceClient proxy;
+        private readonly LibraryService.LibraryServiceClient _proxy;
 
         public ActionResult Books()
         {
             
-            var books = proxy.GetBooks();
+            var books = _proxy.GetBooks();
 
             var bookModels = new List<BookViewModel>();
 
-            foreach (LibraryService.Book book in books)
+            foreach (var book in books)
             {
                 bookModels.Add(ConvertBookToModel(book));
             }
@@ -37,7 +37,7 @@ namespace ElizabethLibrary.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var book = proxy.GetBook(id.GetValueOrDefault());
+            var book = _proxy.GetBook(id.GetValueOrDefault());
             
             if (book == null)
             {
@@ -49,20 +49,24 @@ namespace ElizabethLibrary.Controllers
 
         private BookViewModel ConvertBookToModel(LibraryService.Book book)
         {
-            BookViewModel bookModel = new BookViewModel();
-            bookModel.BookId = book.BookId;
-            bookModel.ISBN = book.ISBN;
-            bookModel.Title = book.Title;
-            bookModel.author = ConvertAuthorToModel(proxy.GetAuthor(book.AuthorId));
+            var bookModel = new BookViewModel
+            {
+                BookId = book.BookId,
+                Isbn = book.ISBN,
+                Title = book.Title,
+                Author = ConvertAuthorToModel(book.Author)
+            };
             return bookModel;
         }
 
         private AuthorViewModel ConvertAuthorToModel(LibraryService.Author author)
         {
-            AuthorViewModel authorModel = new AuthorViewModel();
-            authorModel.AuthorId = author.AuthorID;
-            authorModel.FirstName = author.FirstName;
-            authorModel.LastName = author.LastName;
+            var authorModel = new AuthorViewModel
+            {
+                AuthorId = author.AuthorID,
+                FirstName = author.FirstName,
+                LastName = author.LastName
+            };
             return authorModel;
         }
 

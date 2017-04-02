@@ -1,9 +1,8 @@
 ﻿using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ElizabethLibrary;
 using ElizabethLibrary.Controllers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ElizabethLibrary.Tests.Controllers
+namespace ElizabethSite.Tests.Controllers
 {
     [TestClass]
     public class HomeControllerTest
@@ -12,14 +11,14 @@ namespace ElizabethLibrary.Tests.Controllers
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            var controller = new HomeController();
 
             // Act
-            ViewResult result = controller.Index() as ViewResult;
+            var result = controller.Index() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual("Home Page", result.ViewBag.Title);
+            Assert.AreEqual("My Library", result.ViewBag.Title);
         }
     }
 }

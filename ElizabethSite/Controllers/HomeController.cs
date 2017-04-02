@@ -1,6 +1,4 @@
 ﻿using System.Web.Mvc;
-using ElizabethLibrary.Models;
-using System.Collections.Generic;
 
 namespace ElizabethLibrary.Controllers
 {

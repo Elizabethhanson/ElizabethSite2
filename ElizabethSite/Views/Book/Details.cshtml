@@ -3,28 +3,26 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Book Details";
 }
-
-<h2>Details</h2>
-
-<div>
-<h4>Book Details</h4>
-<hr />
-<dl class="dl-horizontal">
-    <dt>
-        @Html.DisplayFor(model => model.Title)
-    </dt>    
-    <dt>        
-        @Html.DisplayFor(model => model.author.FirstName)
-        @Html.DisplayFor(model => model.author.LastName)
-    </dt>
-    <dt>
-        @Html.ActionLink("Details", "Details", "Author", new { id = Model.author.AuthorId }, null)        
-    </dt>
-</dl>
+<div class="page-header">
+    <h2>Book Details</h2>
 </div>
 <br />
-<p>
-    @Html.ActionLink("Back to List", "Books")
-</p>
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+            @Html.DisplayFor(model => model.Title)
+        </div>
+        <div class="panel-body">
+            @Html.DisplayFor(model => model.Author.FirstName)
+            @Html.DisplayFor(model => model.Author.LastName)
+        </div>
+        <div class="panel-footer">
+            @Html.ActionLink("Author", "Details", "Author", new { id = Model.Author.AuthorId }, null)
+        </div>
+    </div>
+    <br />
+    <p>
+        @Html.ActionLink("Back to List of Book", "Books")
+    </p>

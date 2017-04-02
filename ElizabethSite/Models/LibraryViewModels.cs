@@ -8,9 +8,9 @@ namespace ElizabethLibrary.Models
 
         public string Title { get; set; }
 
-        public string ISBN { get; set; }
+        public string Isbn { get; set; }
 
-        public AuthorViewModel author { get; set; }
+        public AuthorViewModel Author { get; set; }
 
     }
 
@@ -22,6 +22,6 @@ namespace ElizabethLibrary.Models
 
         public string LastName { get; set; }
 
-        public IEnumerable<BookViewModel> books { get; set; }
+        public IEnumerable<BookViewModel> Books { get; set; }
     }
 }

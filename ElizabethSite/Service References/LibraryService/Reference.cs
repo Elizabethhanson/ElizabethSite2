@@ -23,7 +23,7 @@ namespace ElizabethLibrary.LibraryService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int AuthorIdField;
+        private ElizabethLibrary.LibraryService.Author AuthorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int BookIdField;
@@ -45,14 +45,14 @@ namespace ElizabethLibrary.LibraryService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AuthorId {
+        public ElizabethLibrary.LibraryService.Author Author {
             get {
-                return this.AuthorIdField;
+                return this.AuthorField;
             }
             set {
-                if ((this.AuthorIdField.Equals(value) != true)) {
-                    this.AuthorIdField = value;
-                    this.RaisePropertyChanged("AuthorId");
+                if ((object.ReferenceEquals(this.AuthorField, value) != true)) {
+                    this.AuthorField = value;
+                    this.RaisePropertyChanged("Author");
                 }
             }
         }
@@ -99,7 +99,7 @@ namespace ElizabethLibrary.LibraryService {
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            var propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
@@ -117,6 +117,9 @@ namespace ElizabethLibrary.LibraryService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int AuthorIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ElizabethLibrary.LibraryService.Book[] BooksField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string FirstNameField;
@@ -143,6 +146,19 @@ namespace ElizabethLibrary.LibraryService {
                 if ((this.AuthorIDField.Equals(value) != true)) {
                     this.AuthorIDField = value;
                     this.RaisePropertyChanged("AuthorID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ElizabethLibrary.LibraryService.Book[] Books {
+            get {
+                return this.BooksField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BooksField, value) != true)) {
+                    this.BooksField = value;
+                    this.RaisePropertyChanged("Books");
                 }
             }
         }
@@ -176,7 +192,7 @@ namespace ElizabethLibrary.LibraryService {
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            var propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }

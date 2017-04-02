@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Data;
 
 namespace LibraryService.Tests
 {
@@ -14,7 +13,7 @@ namespace LibraryService.Tests
         [TestMethod]
         public void TestGetBook()
         {
-            LibraryService service = new LibraryService();
+            var service = new LibraryService();
             var book = service.GetBook(1);
             Assert.IsNotNull(book);
         }
@@ -22,7 +21,7 @@ namespace LibraryService.Tests
         [TestMethod]
         public void TestGetBooks()
         {
-            LibraryService service = new LibraryService();
+            var service = new LibraryService();
             var books = service.GetBooks();
             Assert.IsNotNull(books);
         }

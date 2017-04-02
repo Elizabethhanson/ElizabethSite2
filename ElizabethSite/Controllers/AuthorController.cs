@@ -9,19 +9,19 @@ namespace ElizabethLibrary.Controllers
     {
         public AuthorController()
         {
-            proxy = new LibraryService.LibraryServiceClient();
+            _proxy = new LibraryService.LibraryServiceClient();
         }
 
-        private LibraryService.LibraryServiceClient proxy;
+        private readonly LibraryService.LibraryServiceClient _proxy;
 
         public ActionResult Authors()
         {
 
-            var authors = proxy.GetAuthors();
+            var authors = _proxy.GetAuthors();
 
             var authorModels = new List<AuthorViewModel>();
 
-            foreach (LibraryService.Author author in authors)
+            foreach (var author in authors)
             {
                 authorModels.Add(ConvertAuthorToModel(author));
             }
@@ -37,7 +37,7 @@ namespace ElizabethLibrary.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var author = proxy.GetAuthor(id.GetValueOrDefault());
+            var author = _proxy.GetAuthor(id.GetValueOrDefault());
 
             if (author == null)
             {
@@ -49,26 +49,29 @@ namespace ElizabethLibrary.Controllers
 
         private BookViewModel ConvertBookToModel(LibraryService.Book book)
         {
-            BookViewModel bookModel = new BookViewModel();
-            bookModel.BookId = book.BookId;
-            bookModel.ISBN = book.ISBN;
-            bookModel.Title = book.Title;
+            var bookModel = new BookViewModel
+            {
+                BookId = book.BookId,
+                Isbn = book.ISBN,
+                Title = book.Title
+            };
             return bookModel;
         }
 
         private AuthorViewModel ConvertAuthorToModel(LibraryService.Author author)
         {
-            AuthorViewModel authorModel = new AuthorViewModel();
-            authorModel.AuthorId = author.AuthorID;
-            authorModel.FirstName = author.FirstName;
-            authorModel.LastName = author.LastName;
-            var books = proxy.GetBooksByAuthorID(author.AuthorID);
-            List<BookViewModel> bookModels = new List<BookViewModel>();
-            foreach (LibraryService.Book book in books)
+            var authorModel = new AuthorViewModel
+            {
+                AuthorId = author.AuthorID,
+                FirstName = author.FirstName,
+                LastName = author.LastName
+            };
+            var bookModels = new List<BookViewModel>();
+            foreach (var book in author.Books)
             {
                 bookModels.Add(ConvertBookToModel(book));
             }
-            authorModel.books = bookModels;
+            authorModel.Books = bookModels;
             return authorModel;
         }
     }

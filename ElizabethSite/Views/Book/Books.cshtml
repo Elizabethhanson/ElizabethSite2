@@ -5,35 +5,42 @@
 @{
     ViewBag.Title = "Books";
 }
-
-<h2>Books</h2>
-
-    <h4>Book</h4>
-    <hr />
-    <table>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ISBN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.author.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.author.LastName)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.BookId })
-            </td>
-        </tr>
-    }
+<div class="page-header">
+    <h2>Books</h2>
+</div>
+    <br />
+    <table class="table table-striped table-hover ">
+        <thead>
+            <tr class="h3">
+                <td>Title</td>
+                <td>ISBN</td>
+                <td>Author Name</td>
+                <td>Book information</td>
+            </tr> 
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Isbn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author.FirstName)
+                        @Html.DisplayFor(modelItem => item.Author.LastName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Author", "Details", new { id = item.BookId })
+                    </td>
+                </tr>
+            }
+        </tbody>
 </table>
 <p>
-    @Html.ActionLink("Back to List", "Books")
+    @Html.ActionLink("Back to List of Book", "Books")
 </p>
 
 
