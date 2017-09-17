@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 
 namespace LibraryService.Entities
 {
@@ -15,15 +14,13 @@ namespace LibraryService.Entities
         }
     }
 
-    public class LibraryInitializer: DropCreateDatabaseIfModelChanges<LibraryContext>
+    public class LibraryInitializer: DropCreateDatabaseAlways<LibraryContext>
     {
         protected override void Seed(LibraryContext context)
-        {
-            new List<BookEntity>
-            {
-                new BookEntity {Title="Elantris", ISBN="1234-1234-1234", Author= new AuthorEntity {FirstName="Brandon", LastName="Sanderson" } },
-                new BookEntity {Title="A Game of Thrones", ISBN="A123-B2345-C1234", Author = new AuthorEntity {FirstName="George", LastName="Martin" } }
-            }.ForEach(b => context.Books.Add(b));
+        { 
+            const string fileName = "C:\\Users\\elizabeth\\Source\\Repos\\ElizabethSite2\\LibraryService\\JsonSeedFiles\\SeedData.json";
+            var authors = SeedHelper.SeedIt<AuthorEntity>(fileName);
+            context.Authors.AddRange(authors);
             base.Seed(context);
         }
     }

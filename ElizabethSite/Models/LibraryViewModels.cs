@@ -11,7 +11,6 @@ namespace ElizabethLibrary.Models
         public string Isbn { get; set; }
 
         public AuthorViewModel Author { get; set; }
-
     }
 
     public class AuthorViewModel

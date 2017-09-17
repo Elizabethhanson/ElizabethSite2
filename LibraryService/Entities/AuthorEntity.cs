@@ -23,8 +23,8 @@ namespace LibraryService.Entities
         private ICollection<BookEntity> _books;
 
         public virtual ICollection<BookEntity> Books {
-            get { return _books ?? (_books = new Collection<BookEntity>()); }
-            set { _books = value; }
+            get => _books ?? (_books = new Collection<BookEntity>());
+            set => _books = value;
         }
     }
 }

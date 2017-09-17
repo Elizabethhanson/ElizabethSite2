@@ -7,21 +7,25 @@ namespace LibraryService.Entities
     {
         public static Book TranslateBookEntityToBook(BookEntity bookEntity)
         {
-            var book = new Book();
-            book.Author = TranslateAuthorEntityToAuthor(bookEntity.Author);
-            book.BookId = bookEntity.Id;
-            book.ISBN = bookEntity.ISBN;
-            book.Title = bookEntity.Title;
+            var book = new Book
+            {
+                Author = TranslateAuthorEntityToAuthor(bookEntity.Author),
+                BookId = bookEntity.Id,
+                ISBN = bookEntity.ISBN,
+                Title = bookEntity.Title
+            };
             return book;
         }
 
         public static Author TranslateAuthorEntityToAuthor(AuthorEntity authorEntity)
         {
-            var author = new Author();
-            author.AuthorID = authorEntity.Id;
-            author.FirstName = authorEntity.FirstName;
-            author.LastName = authorEntity.LastName;
-            author.Books = new List<Book>();
+            var author = new Author
+            {
+                AuthorID = authorEntity.Id,
+                FirstName = authorEntity.FirstName,
+                LastName = authorEntity.LastName,
+                Books = new List<Book>()
+            };
 
             foreach (var bookEntity in authorEntity.Books)
             {

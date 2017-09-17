@@ -16,7 +16,6 @@ namespace ElizabethLibrary.Controllers
 
         public ActionResult Authors()
         {
-
             var authors = _proxy.GetAuthors();
 
             var authorModels = new List<AuthorViewModel>();

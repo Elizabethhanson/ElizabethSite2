@@ -16,7 +16,6 @@ namespace ElizabethLibrary.Controllers
 
         public ActionResult Books()
         {
-            
             var books = _proxy.GetBooks();
 
             var bookModels = new List<BookViewModel>();
@@ -27,7 +26,6 @@ namespace ElizabethLibrary.Controllers
             }
 
             return View(bookModels);
-           
         }
 
         public ActionResult Details(int? id)
@@ -56,6 +54,7 @@ namespace ElizabethLibrary.Controllers
                 Title = book.Title,
                 Author = ConvertAuthorToModel(book.Author)
             };
+
             return bookModel;
         }
 
@@ -67,6 +66,7 @@ namespace ElizabethLibrary.Controllers
                 FirstName = author.FirstName,
                 LastName = author.LastName
             };
+
             return authorModel;
         }
 

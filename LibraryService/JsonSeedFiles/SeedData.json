@@ -1,0 +1,27 @@
+﻿[{
+      "FirstName": "Brandon",
+      "MiddleName": "",
+      "LastName": "Sanderson",
+      "Books": [
+        {
+          "Title": "Elantris",
+          "ISBN": "1234-1234-12341234"
+        },
+        {
+          "Titel": "Way of kings",
+          "ISBN": "3456-231212312"
+        }
+      ]
+    },
+    {
+      "FirstName": "George",
+      "MiddleName": "RR",
+      "LastName": "Martin",
+      "Books": [
+        {
+          "Title": "Game of Thrones",
+          "ISBN":  "1234213134o09" 
+        }
+      ] 
+    }
+  ]
