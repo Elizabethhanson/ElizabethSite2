@@ -10,6 +10,7 @@ namespace LibraryService.Entities
     {
         [Key]
         public int Id {get; set;}
+
         [Required, MaxLength(100), MinLength(3)]
         public string FirstName { get; set; }
 

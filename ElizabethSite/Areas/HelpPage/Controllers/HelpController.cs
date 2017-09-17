@@ -35,7 +35,7 @@ namespace ElizabethLibrary.Areas.HelpPage.Controllers
         {
             if (!String.IsNullOrEmpty(apiId))
             {
-                var apiModel = Configuration.GetHelpPageApiModel(apiId);
+                HelpPageApiModel apiModel = Configuration.GetHelpPageApiModel(apiId);
                 if (apiModel != null)
                 {
                     return View(apiModel);
@@ -49,7 +49,7 @@ namespace ElizabethLibrary.Areas.HelpPage.Controllers
         {
             if (!String.IsNullOrEmpty(modelName))
             {
-                var modelDescriptionGenerator = Configuration.GetModelDescriptionGenerator();
+                ModelDescriptionGenerator modelDescriptionGenerator = Configuration.GetModelDescriptionGenerator();
                 ModelDescription modelDescription;
                 if (modelDescriptionGenerator.GeneratedModels.TryGetValue(modelName, out modelDescription))
                 {
